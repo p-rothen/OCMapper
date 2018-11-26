@@ -163,6 +163,11 @@
 			Class class = NSClassFromString([self typeForProperty:originalPropertyName andClass:[object class]]);
 			id propertyValue = [object valueForKey:(NSString *)originalPropertyName];
 			
+			//iOS 11 bug fix with optionals
+            		if (!propertyValue) {
+				break;
+            		}
+			
 			ObjectMappingInfo *mapingInfo = [self.mappingProvider mappingInfoForClass:[object class] andPropertyKey:originalPropertyName];
 			NSString *propertyName = (mapingInfo) ? mapingInfo.dictionaryKey : originalPropertyName;
 			
