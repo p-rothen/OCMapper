@@ -165,7 +165,7 @@
 			
 			//iOS 11 bug fix with optionals
             		if (!propertyValue) {
-				break;
+				continue;
             		}
 			
 			ObjectMappingInfo *mapingInfo = [self.mappingProvider mappingInfoForClass:[object class] andPropertyKey:originalPropertyName];
