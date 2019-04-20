@@ -264,7 +264,7 @@
 		{
 			ObjectMappingInfo *mappingInfo = [self.mappingProvider mappingInfoForClass:class andDictionaryKey:key];
 			id value = [normalizedSource objectForKey:(NSString *)key];
-			NSString *propertyName;
+			NSString *propertyName = key;
 			MappingTransformer mappingTransformer;
 			Class objectType;
 			id nestedObject;
@@ -277,7 +277,7 @@
 			}
 			else
 			{
-				propertyName = [instanceProvider propertyNameForObject:object byCaseInsensitivePropertyName:key];
+				//propertyName = [instanceProvider propertyNameForObject:object byCaseInsensitivePropertyName:key];
 				
 				if (propertyName && ([value isKindOfClass:[NSDictionary class]] || [value isKindOfClass:[NSArray class]]))
 				{
